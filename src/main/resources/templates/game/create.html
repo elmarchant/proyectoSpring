@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es-ES" xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear partida</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <script src="/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <main class="container-sm p-2">
+        <h1 class="text-center">Crear partida</h1>
+        <hr>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/main">Principal</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Crear partida</li>
+            </ol>
+        </nav>
+        <hr>
+        <div>
+            <form action="/game/create/save" id="game-create" method="post">
+                <div class="mb-3">
+                    <label for="game-name" class="form-label">Nombre de la partida</label>
+                    <input required type="text" name="name" class="form-control" id="game-name" placeholder="Nombre de la partida">
+                </div>
+                <div class="mb-3">
+                    <label for="rival" class="form-label">Invitar a:</label>
+                    <select id="rival" required name="rival" class="form-select" aria-label="Default select example">
+                        <option value="">---</option>
+                        <span th:each="user : ${users}">
+                            <span th:if="${user.id != player.id}">
+                                <option th:value="${user.id}" th:text="${user.username}"></option>
+                            </span>
+                        </span>
+                    </select>
+                </div>
+            </form>
+        </div>
+        <hr>
+        <div class="d-grid gap-2">
+            <button form="game-create" class="btn btn-primary" type="submit">Crear</button>
+            <a href="/main" class="btn btn-danger" role="button">Cancelar</a>
+        </div>
+    </main>
+</body>
+</html>

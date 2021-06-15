@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es-ES" xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principal</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/listGames.js"></script>
+</head>
+<body>
+    <main class="container-sm p-2">
+        <h1 class="text-center">Hundir la flota</h1>
+        <hr>
+        <div class="d-grid gap-2">
+            <a href="/game/create" class="btn btn-primary" disabled type="button">Crear partida</a>
+            <a href="/user/profile" class="btn btn-primary" type="button">Perfil</a>
+        </div>
+        <hr>
+        <div class="btn-group mb-3" role="group" aria-label="Basic example">
+            <button type="button" id="refresh-games" class="btn btn-secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
+                    <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
+                </svg>
+            </button>
+        </div>
+        <div class="games-list-box">
+            <div class="list-group" id="game-list"></div>
+        </div>
+        <hr>
+        <div class="d-grid gap-2">
+            <a href="/logout" class="btn btn-danger" type="button">Cerrar Sesión</a>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es-ES" xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear cuenta</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <main class="container-sm p-2">
+        <h1 class="text-center">Crear cuenta</h1>
+        <hr>
+        <section class="container-sm">
+            <form action="/user/register/save" method="POST">
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input required type="text" class="form-control" name="nombre" id="nombre" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="apellido" class="form-label">Apellido</label>
+                    <input required type="text" class="form-control" name="apellido" id="apellido" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="username" class="form-label">Nombre de usuario</label>
+                    <input required type="text" class="form-control" name="username" id="username" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <input required type="password" class="form-control" name="password" id="password">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Repetir Contraseña</label>
+                    <input required type="password" class="form-control" name="repassword" id="repassword">
+                </div>
+                <hr>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary" type="submit">Crear cuenta</button>
+                    <a href="/login" class="btn btn-success" role="button">Iniciar sesión</a>
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

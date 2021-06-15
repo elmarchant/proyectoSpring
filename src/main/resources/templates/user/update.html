@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es-ES" xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar perfil</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <main class="container-sm p-2">
+        <h1 class="text-center">Modificar perfil</h1>
+        <hr>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/main">Principal</a></li>
+                <li class="breadcrumb-item"><a href="/user/profile">Perfil</a></li>
+                <li class="breadcrumb-item active" aria-current="/user/profile/update">Modificar Perfil</li>
+            </ol>
+        </nav>
+        <hr>
+        <section class="container-sm">
+            <div>
+                <form action="/user/profile/update/nombre" method="POST">
+                    <p class="mb-1">Nombre</p>
+                    <div class="input-group mb-3">
+                        <input required name="nombre" id="nombre" type="text" class="form-control" placeholder="Nombre" th:value="${profile.nombre}" aria-label="Nombre" aria-describedby="button-addon2">
+                        <button class="btn btn-success" type="submit" id="button-addon2">Guardar</button>
+                    </div>
+                </form>
+            </div>
+            <hr>
+            <div>
+                <form action="/user/profile/update/apellido" method="POST">
+                    <p class="mb-1">Apellido</p>
+                    <div class="input-group mb-3">
+                        <input required name="apellido" id="apellido" type="text" class="form-control" placeholder="Apellido" th:value="${profile.apellido}" aria-label="Apellido" aria-describedby="button-addon2">
+                        <button class="btn btn-success" type="submit" id="button-addon2">Guardar</button>
+                    </div>
+                </form>
+            </div>
+            <hr>
+            <div>
+                <form action="/user/profile/update/password" method="POST">
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Contraseña</label>
+                        <input required type="password" class="form-control" name="password" id="password">
+                    </div>
+                    <div class="mb-3">
+                        <label for="repassword" class="form-label">Repetir Contraseña</label>
+                        <input required type="password" class="form-control" name="repassword" id="repassword">
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-success">Cambiar contraseña</button>
+                    </div>
+                </form>
+            </div>
+            <hr>
+            <div class="d-grid gap-2">
+                <a href="/user/profile/" class="btn btn-danger" role="button">Cancelar</a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

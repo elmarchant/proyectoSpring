@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es-ES" xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/tableFunctional.js"></script>
+</head>
+<body>
+    <main class="container-sm p-2">
+        <h1 class="text-center">Game</h1>
+        <hr>
+        <section th:if="${player == 1}">
+            <div>
+                <table class="game-table">
+                    <tbody>
+                        <tr th:each="row : ${game.table1}">
+                            <span th:each="column : ${row}">
+                                <td th:text="${column}"></td>
+                            </span>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <hr>
+            <div>
+                <table class="game-table attack-area">
+                    <tbody>
+                        <tr th:each="row, y : ${game.table2}">
+                            <span th:each="column, x : ${row}">
+                                <span th:if="${column == 'X'}">
+                                    <td th:data-y="${y.index}" th:data-x="${x.index}"></td>
+                                </span>
+                                <span th:unless="${column == 'X'}">
+                                    <td th:data-y="${y.index}" th:data-x="${x.index}" th:text="${column}"></td>
+                                </span>
+                            </span>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section th:if="${player == 2}">
+            <div>
+                <table class="game-table">
+                    <tbody>
+                        <tr th:each="row : ${game.table2}">
+                            <span th:each="column : ${row}">
+                                <td th:text="${column}"></td>
+                            </span>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <hr>
+            <div>
+                <table class="game-table attack-area">
+                    <tbody>
+                        <tr th:each="row, y : ${game.table1}">
+                            <span th:each="column, x : ${row}">
+                                <span th:if="${column == 'X'}">
+                                    <td th:data-y="${y.index}" th:data-x="${x.index}"></td>
+                                </span>
+                                <span th:unless="${column == 'X'}">
+                                    <td th:data-y="${y.index}" th:data-x="${x.index}" th:text="${column}"></td>
+                                </span>
+                            </span>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <hr>
+        <div class="d-grid gap-2">
+            <a href="/main" class="btn btn-success" role="button">Principal</a>
+        </div>
+        <form id="attack" style="display: none;" th:action="'/game/' + ${index} + '/play'" method="post">
+            <input id="xVal" type="hidden" name="x" value="">
+            <input id="yVal" type="hidden" name="y" value="">
+        </form>
+    </main>
+</body>
+</html>

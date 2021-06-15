@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es-ES" xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <script src="/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <main class="container-sm p-2">
+        <h1 class="text-center">Perfil</h1>
+        <hr>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/main">Principal</a></li>
+                <li class="breadcrumb-item active" aria-current="/user/profile">Perfil</li>
+            </ol>
+        </nav>
+        <hr>
+        <div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Tipo de dato</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Nombre</th>
+                        <td th:text="${profile.nombre}"></td>
+                    </tr>
+                    <tr>
+                        <th>Apellido</th>
+                        <td th:text="${profile.apellido}"></td>
+                    </tr>
+                    <tr>
+                        <th>Nombre de usuario</th>
+                        <td th:text="${profile.username}"></td>
+                    </tr>
+                    <tr>
+                        <th>Contraseña</th>
+                        <td>******</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <hr>
+        <div class="d-grid gap-2">
+            <a href="/user/profile/update" class="btn btn-success" role="button">Editar perfil</a>
+            <a href="/main" class="btn btn-primary" role="button">Volver</a>
+        </div>
+    </main>
+</body>
+</html>
